@@ -1,8 +1,8 @@
 class MotelsController < ApplicationController
   def index
-    @motels = Motel.all
-    @bookings = @motels.map {|motel| motel.bookings }.flatten
-    @revenue = @bookings.map(&:amount_centavos).inject(:+)
+    @motels = Motel.all_cached
+    @bookings = Booking.all_cached
+    # binding.pry
   end
 
   def show

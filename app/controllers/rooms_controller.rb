@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
   def index
-    # binding.pry
+    @motel = Motel.find_motel(params[:motel_id])
+    @rooms = @motel.rooms
   end
 
   def show
