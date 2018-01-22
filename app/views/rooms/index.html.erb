@@ -1,6 +1,8 @@
 <h1>List of rooms from Motel <%= @motel.name %>:</h1>
 
 <div class="">
+  <%= link_to "back", request.referer.present? ? request.referer : default_path %>
+  
   <p>Motel name: <%= @motel.name %></p>
   <% @rooms.each do |room| %>
 
