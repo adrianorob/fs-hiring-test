@@ -3,10 +3,8 @@ class Booking < ActiveResource::Base
   belongs_to :motel
   belongs_to :room
 
-  # class << self
   def self.all_cached
     motels = Rails.cache.fetch('motels')
-    Rails.cache.fetch("bookings") { motels.map {|motel| motel.bookings }.flatten }
+    Rails.cache.fetch("bookings") { Rails.cache.fetch('motels').map {|motel| motel.bookings }.flatten }
   end
-  # end
 end

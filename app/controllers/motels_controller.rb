@@ -1,8 +1,7 @@
 class MotelsController < ApplicationController
   def index
-    @motels = Motel.all_cached
-    @bookings = Booking.all_cached
-    # binding.pry
+    @motels = Rails.cache.fetch('motels')
+    @bookings = Rails.cache.fetch('bookings')
   end
 
   def show
