@@ -1,0 +1,18 @@
+.header
+  h1 List of rooms
+  h2 Motel #{@motel.name}
+
+  = link_to "Home", root_path, class: 'btn btn-primary'
+  br
+  = link_to 'List Bookings from this motel', bookings_path(motel_id: @motel.id), class: 'btn btn-primary'
+
+.cards
+  .container
+    .row
+      - @rooms.each do |room|
+        .col-xs-12.col-sm-6
+          = link_to bookings_path(room_id: room.id) do
+            .card
+              p Room name: #{room.name}
+              p Bookings in this room: #{room.number_bookings}
+              img src="#{room.picture}" alt=""
