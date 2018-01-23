@@ -1,0 +1,13 @@
+.header
+  h1 List of motels
+  = link_to "List all #{Rails.cache.fetch('bookings').count} bookings", bookings_path, class: 'btn btn-primary'
+.cards
+  .container
+    .row
+      - @motels.each do |motel|
+        .col-xs-12.col-sm-6
+          = link_to motel_rooms_path(motel) do
+            .card
+              p Motel name: #{motel.name}
+              p Bookings in this motel: #{motel.number_bookings}
+              img src="#{motel.logo}" alt=""

@@ -1,3 +1,40 @@
-// Place all the styles related to the Motels controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.header {
+  color: rgb(240, 149, 28);
+  background-color: rgb(71, 23, 60);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards {
+  padding: 10px 10px;
+  background-color: rgb(240, 243, 242);
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+.card {
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  margin: 10px 10px;
+  padding: 20px 10px;
+  height: 200px;
+  border-radius: 4px;
+  img {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    max-width: 200px;
+    max-height: 120px;
+    border-radius: 2px;
+  }
+}
+
+.card:hover {
+  opacity: 0.8;
+}

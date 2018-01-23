@@ -1,0 +1,35 @@
+.header
+  h1 List of Bookings
+  - if params.include?(:motel_id) || params.include?(:room_id)
+    p for
+      <strong>#{params.include?(:motel_id) ? 'motel' : 'room' }</strong>
+      <h2> #{params.include?(:motel_id) ? Motel.find_cached(params[:motel_id]).name : Room.find_cached(params[:room_id]).name } </h2>
+  = link_to "Home", root_path, class: 'btn btn-primary'
+  br
+  = link_to "Back", :back, class: 'btn btn-primary'
+  h2 Summary
+  ul#selector
+    li Number of Bookings: #{@bookings.count}
+    li All Revenue: #{@bookings.map(&:amount_centavos).inject(:+).fdiv(100)} $
+    li Revenue discount amount fee: #{@bookings.map(&:revenue_discount).inject(:+).fdiv(100)} $
+    li Average fee discount: #{@bookings.map(&:fee_percentage).inject(:+).fdiv(@bookings.count)} %
+.cards
+  .container
+    .row
+      - @bookings.each do |booking|
+        .col-xs-12.col-sm-6.col-md-4
+          / = link_to motel_rooms_path(motel) do
+          .card
+            h4 Motel name: #{booking.motel.name}
+            p Room name: <strong>#{booking.room.name}</strong>
+            p Book date: <strong>#{Time.parse(booking.created_at).strftime("%d/%m/%Y %H:%M")}</strong>
+
+            ul#selector
+              li Amount Cents:
+                <strong>#{booking.amount_centavos}</strong> $
+              li Fee Percentage:
+                <strong>#{booking.fee_percentage}</strong> %
+              li Booking Perid:
+                <strong>#{booking.booking_period}</strong>
+              li Booking Code:
+                <strong>#{booking.booking_code}</strong>
