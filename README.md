@@ -1,24 +1,11 @@
-# README
+# Luvotels - Full-stack hiring test - Adriano
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Specs used to evaluate this test
 
-Things you may want to cover:
+1. Didn't use database, as the app uses an api it looked to me that including an database would be unnecessary;
+2. ActiveResource for the API interaction;
+3. MemoryStore for caching api;
+4. Slim;
+5. Rspec for testing;
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+All that said, had to make some workaround (create specific methods on models) to cope with a problem in ActiveResource associations as they weren't working as expected.
