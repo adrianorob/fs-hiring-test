@@ -11,7 +11,8 @@
 .cards {
   padding: 10px 10px;
   background-color: rgb(240, 243, 242);
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
 }
 
 a {
