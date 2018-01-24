@@ -16,6 +16,10 @@ class Booking < ActiveResource::Base
     Room.find_cached(self.room_id)
   end
 
+  def self.find_cached(id)
+    Rails.cache.fetch("bookings").select {|booking| booking.id == id.to_i}.first
+  end
+
   def revenue_discount
     self.amount_centavos * (self.fee_percentage.fdiv(100))
   end

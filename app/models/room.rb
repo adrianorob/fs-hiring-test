@@ -5,7 +5,7 @@ class Room < ActiveResource::Base
   has_many :bookings
 
   def self.all_cached
-    Rails.cache.fetch("rooms") { Motel.all.map {|motel| motel.rooms }.flatten }
+    Rails.cache.fetch("rooms") { Motel.all_cached.map {|motel| motel.rooms }.flatten }
   end
 
   def self.find_cached(id)
