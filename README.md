@@ -9,3 +9,9 @@
 5. Rspec for testing;
 
 All that said, had to make some workaround (create specific methods on models) to cope with a problem in ActiveResource associations as they weren't working as expected.
+
+Forgot to mention that the app is online on Heroku.
+
+https://luvotels-app-without-db.herokuapp.com/
+
+Please have a look!
